@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Update App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+	<style>
+.footer {
+          position: fixed;
+          bottom: 0;
+          width:100%;
+          height: 30px;
+          background-color: #008080;
+          text-align: center;
+          color: white;
+          font-size: large;
+      }
+      .sticky {
+          position: fixed;
+          top: 0;
+          width:100%;
+          height: 40px;
+      }
+	</style>
+</head>
+<body>
+	<h2 class="sticky" style="text-align: center; background-color: #008080;color:white;">GCP Service Mapping Portal</h2>
+	<hr/>
+	<br/>
+	<h4 style="text-align: center">(PCF to GCP Migration)</h4>
+	<br/>
+	<div class="container my-5">
+	<h3> Update App</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-8">
+					<form action="#"
+						th:action="@{/gcp-app-update/{id}(id=${apps.id})}"
+						th:object="${apps}" method="post">
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="appId" class="col-form-label">App ID</label> <input
+									type="text" th:field="*{appId}" class="form-control" id="appId"
+									placeholder="App ID"> <span
+									th:if="${#fields.hasErrors('appId')}" th:errors="*{appId}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="appName" class="col-form-label">App Name</label> <input
+									type="text" th:field="*{appName}" class="form-control" id="appName"
+									placeholder="App Name"> <span
+									th:if="${#fields.hasErrors('appName')}" th:errors="*{appName}"
+									class="text-danger"></span>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="pdo" class="col-form-label">PDO</label> <input
+									type="text" th:field="*{pdo}" class="form-control"
+									id="pdo" placeholder="PDO"> <span
+									th:if="${#fields.hasErrors('pdo')}" th:errors="*{pdo}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="sla" class="col-form-label">SLA</label> <input
+									type="text" th:field="*{sla}" class="form-control"
+									id="sla" placeholder="SLA"> <span
+									th:if="${#fields.hasErrors('sla')}" th:errors="*{sla}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="currentStateTechStack" class="col-form-label">Current Tech Stack</label> <input
+									type="text" th:field="*{currentStateTechStack}" class="form-control"
+									id="currentStateTechStack" placeholder="Current Tech Stack"> <span
+									th:if="${#fields.hasErrors('currentStateTechStack')}" th:errors="*{currentStateTechStack}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="currentStateDb" class="col-form-label">Current State DB</label> <input
+									type="text" th:field="*{currentStateDb}" class="form-control"
+									id="currentStateDb" placeholder="Current State DB"> <span
+									th:if="${#fields.hasErrors('currentStateDb')}" th:errors="*{currentStateDb}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="futureStateTechStack" class="col-form-label">Future State Tech Stack</label> <input
+									type="text" th:field="*{futureStateTechStack}" class="form-control"
+									id="futureStateTechStack" placeholder="Future State Tech Stack"> <span
+									th:if="${#fields.hasErrors('futureStateTechStack')}" th:errors="*{futureStateTechStack}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="migrationRoadMap" class="col-form-label">Migration RoadMap</label> <input
+									type="text" th:field="*{migrationRoadMap}" class="form-control"
+									id="migrationRoadMap" placeholder="Migration RoadMap"> <span
+									th:if="${#fields.hasErrors('migrationRoadMap')}" th:errors="*{migrationRoadMap}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="inScope" class="col-form-label">In Scope</label> <input
+									type="text" th:field="*{inScope}" class="form-control"
+									id="inScope" placeholder="In Scope"> <span
+									th:if="${#fields.hasErrors('inScope')}" th:errors="*{inScope}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="architectureType" class="col-form-label">Architecture Type</label> <input
+									type="text" th:field="*{architectureType}" class="form-control"
+									id="architectureType" placeholder="Architecture Type"> <span
+									th:if="${#fields.hasErrors('architectureType')}" th:errors="*{architectureType}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudRun" class="col-form-label">Cloud Run</label> <input
+									type="text" th:field="*{cloudRun}" class="form-control"
+									id="cloudRun" placeholder="Cloud Run"> <span
+									th:if="${#fields.hasErrors('cloudRun')}" th:errors="*{cloudRun}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="gcpCaas" class="col-form-label">GCP CaaS</label> <input
+									type="text" th:field="*{gcpCaas}" class="form-control"
+									id="gcpCaas" placeholder="GCP CaaS"> <span
+									th:if="${#fields.hasErrors('gcpCaas')}" th:errors="*{gcpCaas}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="onpremCaas" class="col-form-label">Onprem CaaS</label> <input
+									type="text" th:field="*{onpremCaas}" class="form-control"
+									id="onpremCaas" placeholder="Onprem CaaS"> <span
+									th:if="${#fields.hasErrors('onpremCaas')}" th:errors="*{onpremCaas}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="externalLoadBalancer" class="col-form-label">External Load Balancer</label> <input
+									type="text" th:field="*{externalLoadBalancer}" class="form-control"
+									id="externalLoadBalancer" placeholder="External Load Balancer"> <span
+									th:if="${#fields.hasErrors('externalLoadBalancer')}" th:errors="*{externalLoadBalancer}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="internalLoadBalancer" class="col-form-label">Internal Load Balancer</label> <input
+									type="text" th:field="*{internalLoadBalancer}" class="form-control"
+									id="internalLoadBalancer" placeholder="Internal Load Balancer"> <span
+									th:if="${#fields.hasErrors('internalLoadBalancer')}" th:errors="*{internalLoadBalancer}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="apigee" class="col-form-label">Apigee</label> <input
+									type="text" th:field="*{apigee}" class="form-control"
+									id="apigee" placeholder="Apigee"> <span
+									th:if="${#fields.hasErrors('apigee')}" th:errors="*{apigee}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudArmor" class="col-form-label">Cloud Armor</label> <input
+									type="text" th:field="*{cloudArmor}" class="form-control"
+									id="cloudArmor" placeholder="Cloud Armor"> <span
+									th:if="${#fields.hasErrors('cloudArmor')}" th:errors="*{cloudArmor}"
+									class="text-danger"></span>
+							</div>	
+							
+							<div class="form-group col-md-8">
+								<label for="cloudDns" class="col-form-label">Cloud DNS</label> <input
+									type="text" th:field="*{cloudDns}" class="form-control"
+									id="cloudDns" placeholder="Cloud DNS"> <span
+									th:if="${#fields.hasErrors('cloudDns')}" th:errors="*{cloudDns}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="computeEngine" class="col-form-label">Compute Engine</label> <input
+									type="text" th:field="*{computeEngine}" class="form-control"
+									id="computeEngine" placeholder="Compute Engine"> <span
+									th:if="${#fields.hasErrors('computeEngine')}" th:errors="*{computeEngine}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudFunction" class="col-form-label">Cloud Function</label> <input
+									type="text" th:field="*{cloudFunction}" class="form-control"
+									id="cloudFunction" placeholder="Cloud Function"> <span
+									th:if="${#fields.hasErrors('cloudFunction')}" th:errors="*{cloudFunction}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudStorage" class="col-form-label">Cloud Storage</label> <input
+									type="text" th:field="*{cloudStorage}" class="form-control"
+									id="cloudStorage" placeholder="Cloud Storage"> <span
+									th:if="${#fields.hasErrors('cloudStorage')}" th:errors="*{cloudStorage}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="pubSub" class="col-form-label">Pub Sub</label> <input
+									type="text" th:field="*{pubSub}" class="form-control"
+									id="pubSub" placeholder="Pub Sub"> <span
+									th:if="${#fields.hasErrors('pubSub')}" th:errors="*{pubSub}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudSQLMSSQLSE" class="col-form-label">CloudSQL MSSQL SE</label> <input
+									type="text" th:field="*{cloudSQLMSSQLSE}" class="form-control"
+									id="cloudSQLMSSQLSE" placeholder="CloudSQL MSSQL SE"> <span
+									th:if="${#fields.hasErrors('cloudSQLMSSQLSE')}" th:errors="*{cloudSQLMSSQLSE}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudSQLMSSQLEE" class="col-form-label">CloudSQL MSSQL EE</label> <input
+									type="text" th:field="*{cloudSQLMSSQLEE}" class="form-control"
+									id="cloudSQLMSSQLEE" placeholder="CloudSQL MSSQL EE"> <span
+									th:if="${#fields.hasErrors('cloudSQLMSSQLEE')}" th:errors="*{cloudSQLMSSQLEE}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudSQLPG" class="col-form-label">CloudSQL PG</label> <input
+									type="text" th:field="*{cloudSQLPG}" class="form-control"
+									id="cloudSQLPG" placeholder="CloudSQL PG"> <span
+									th:if="${#fields.hasErrors('cloudSQLPG')}" th:errors="*{cloudSQLPG}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="onpremDb" class="col-form-label">Onprem DB</label> <input
+									type="text" th:field="*{onpremDb}" class="form-control"
+									id="onpremDb" placeholder="Onprem DB"> <span
+									th:if="${#fields.hasErrors('onpremDb')}" th:errors="*{onpremDb}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="bigQuery" class="col-form-label">Big Query</label> <input
+									type="text" th:field="*{bigQuery}" class="form-control"
+									id="bigQuery" placeholder="Big Query"> <span
+									th:if="${#fields.hasErrors('bigQuery')}" th:errors="*{bigQuery}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudScheduler" class="col-form-label">Cloud Scheduler</label> <input
+									type="text" th:field="*{cloudScheduler}" class="form-control"
+									id="cloudScheduler" placeholder="Cloud Scheduler"> <span
+									th:if="${#fields.hasErrors('cloudScheduler')}" th:errors="*{cloudScheduler}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="memoryStore" class="col-form-label">Memory Store</label> <input
+									type="text" th:field="*{memoryStore}" class="form-control"
+									id="memoryStore" placeholder="Memory Store"> <span
+									th:if="${#fields.hasErrors('memoryStore')}" th:errors="*{memoryStore}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudMonitoring" class="col-form-label">Cloud Monitoring</label> <input
+									type="text" th:field="*{cloudMonitoring}" class="form-control"
+									id="cloudMonitoring" placeholder="Cloud Monitoring"> <span
+									th:if="${#fields.hasErrors('cloudMonitoring')}" th:errors="*{cloudMonitoring}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudLogging" class="col-form-label">Cloud Logging</label> <input
+									type="text" th:field="*{cloudLogging}" class="form-control"
+									id="cloudLogging" placeholder="Cloud Logging"> <span
+									th:if="${#fields.hasErrors('cloudLogging')}" th:errors="*{cloudLogging}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="secretManager" class="col-form-label">Secret Manager</label> <input
+									type="text" th:field="*{secretManager}" class="form-control"
+									id="secretManager" placeholder="Secret Manager"> <span
+									th:if="${#fields.hasErrors('secretManager')}" th:errors="*{secretManager}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="fireStore" class="col-form-label">Fire Store</label> <input
+									type="text" th:field="*{fireStore}" class="form-control"
+									id="fireStore" placeholder="Fire Store"> <span
+									th:if="${#fields.hasErrors('fireStore')}" th:errors="*{fireStore}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="mongoDb" class="col-form-label">Mongo DB</label> <input
+									type="text" th:field="*{mongoDb}" class="form-control"
+									id="mongoDb" placeholder="Mongo DB"> <span
+									th:if="${#fields.hasErrors('mongoDb')}" th:errors="*{mongoDb}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cloudBuild" class="col-form-label">Cloud Build</label> <input
+									type="text" th:field="*{cloudBuild}" class="form-control"
+									id="cloudBuild" placeholder="Cloud Build"> <span
+									th:if="${#fields.hasErrors('cloudBuild')}" th:errors="*{cloudBuild}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="adfs" class="col-form-label">ADFS</label> <input
+									type="text" th:field="*{adfs}" class="form-control"
+									id="adfs" placeholder="ADFS"> <span
+									th:if="${#fields.hasErrors('adfs')}" th:errors="*{adfs}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="azureAd" class="col-form-label">Azure AD</label> <input
+									type="text" th:field="*{azureAd}" class="form-control"
+									id="azureAd" placeholder="Azure AD"> <span
+									th:if="${#fields.hasErrors('azureAd')}" th:errors="*{azureAd}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="deploymentTopology" class="col-form-label">Deployment Topology</label> <input
+									type="text" th:field="*{deploymentTopology}" class="form-control"
+									id="deploymentTopology" placeholder="Deployment Topology"> <span
+									th:if="${#fields.hasErrors('deploymentTopology')}" th:errors="*{deploymentTopology}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="terraformIacPipeline" class="col-form-label">Terraform IAC Pipeline</label> <input
+									type="text" th:field="*{terraformIacPipeline}" class="form-control"
+									id="terraformIacPipeline" placeholder="Terraform IAC Pipeline"> <span
+									th:if="${#fields.hasErrors('terraformIacPipeline')}" th:errors="*{terraformIacPipeline}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="appCiCdPipeline" class="col-form-label">App CI/CD Pipeline</label> <input
+									type="text" th:field="*{appCiCdPipeline}" class="form-control"
+									id="appCiCdPipeline" placeholder="App CI/CD Pipeline"> <span
+									th:if="${#fields.hasErrors('appCiCdPipeline')}" th:errors="*{appCiCdPipeline}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="fossa" class="col-form-label">FOSSA</label> <input
+									type="text" th:field="*{fossa}" class="form-control"
+									id="fossa" placeholder="FOSSA"> <span
+									th:if="${#fields.hasErrors('fossa')}" th:errors="*{fossa}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="checkmarx" class="col-form-label">Checkmarx</label> <input
+									type="text" th:field="*{checkmarx}" class="form-control"
+									id="checkmarx" placeholder="Checkmarx"> <span
+									th:if="${#fields.hasErrors('checkmarx')}" th:errors="*{checkmarx}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="sonarQube" class="col-form-label">SonarQube</label> <input
+									type="text" th:field="*{sonarQube}" class="form-control"
+									id="sonarQube" placeholder="SonarQube"> <span
+									th:if="${#fields.hasErrors('sonarQube')}" th:errors="*{sonarQube}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="cyCode" class="col-form-label">CyCode</label> <input
+									type="text" th:field="*{cyCode}" class="form-control"
+									id="cyCode" placeholder="CyCode"> <span
+									th:if="${#fields.hasErrors('cyCode')}" th:errors="*{cyCode}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="crunch_42" class="col-form-label">42 Crunch</label> <input
+									type="text" th:field="*{crunch_42}" class="form-control"
+									id="crunch_42" placeholder="42 Crunch"> <span
+									th:if="${#fields.hasErrors('crunch_42')}" th:errors="*{crunch_42}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="automatedTesting" class="col-form-label">Automated Testing</label> <input
+									type="text" th:field="*{automatedTesting}" class="form-control"
+									id="automatedTesting" placeholder="Automated Testing"> <span
+									th:if="${#fields.hasErrors('automatedTesting')}" th:errors="*{automatedTesting}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="sre" class="col-form-label">SRE</label> <input
+									type="text" th:field="*{sre}" class="form-control"
+									id="sre" placeholder="SRE"> <span
+									th:if="${#fields.hasErrors('sre')}" th:errors="*{sre}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="migrationScope" class="col-form-label">Migration Scope</label> <input
+									type="text" th:field="*{migrationScope}" class="form-control"
+									id="migrationScope" placeholder="Migration Scope"> <span
+									th:if="${#fields.hasErrors('migrationScope')}" th:errors="*{migrationScope}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="migrationCategory" class="col-form-label">Migration Category</label> <input
+									type="text" th:field="*{migrationCategory}" class="form-control"
+									id="migrationCategory" placeholder="Migration Category"> <span
+									th:if="${#fields.hasErrors('migrationCategory')}" th:errors="*{migrationCategory}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="launchDate" class="col-form-label">Launch Date</label> <input
+									type="text" th:field="*{launchDate}" class="form-control"
+									id="launchDate" placeholder="Launch Date"> <span
+									th:if="${#fields.hasErrors('launchDate')}" th:errors="*{launchDate}"
+									class="text-danger"></span>
+							</div>	
+
+							<div class="form-group col-md-8">
+								<input type="submit" class="btn btn-primary"
+									value="Update App">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+		<footer class = "footer">
+		<span>Designed & Developed by Veera</span>
+	</footer>
+</body>
+</html>

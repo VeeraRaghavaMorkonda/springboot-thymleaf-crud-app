@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>GCP Service Mapping Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+<style>
+.footer {
+          position: fixed;
+          bottom: 0;
+          width:100%;
+          height: 30px;
+          background-color: #008080;
+          text-align: center;
+          color: white;
+          font-size: large;
+      }
+      .sticky {
+          position: fixed;
+          top: 0;
+          width:100%;
+          height: 40px;
+      }
+	</style>
+</head>
+<body>
+	<h2 class="sticky" style="text-align: center; background-color: #008080;color:white;">GCP Service Mapping Portal</h2>
+	<hr/>
+	<br/>
+	<h4 style="text-align: center">(PCF to GCP Migration)</h4>
+	<br/>
+	<div class="container my-2">
+		<div class="card">
+			<div class="card-body">
+				<div th:switch="${serviceMappingEntity}" class="container my-5">
+					<p class="my-5">
+						<a href="/gcp-app-form" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Add App</i></a>
+					</p>
+					<div class="col-md-10">
+
+							<table class="table table-striped table-responsive-md">
+								<thead>
+									<tr>
+										<th>App ID</th>
+										<th>App Name</th>
+										<th>PDO</th>
+										<th>SLA</th>
+										<th>Current Tech Stack</th>
+										<th>Current State DB</th>
+										<th>Future State Tech Stack</th>
+										<th>Migration RoadMap</th>
+										<th>In Scope</th>
+										<th>Architecture Type</th>
+										<th>Cloud Run</th>
+										<th>GCP CaaS</th>
+										<th>Onprem CaaS</th>
+										<th>External Load Balancer</th>
+										<th>Internal Load Balancer</th>
+										<th>Apigee</th>
+										<th>Cloud Armor</th>
+										<th>Cloud DNS</th>
+										<th>Compute Engine</th>
+										<th>Cloud Function</th>
+										<th>Cloud Storage</th>
+										<th>Pub Sub</th>
+										<th>CloudSQL MSSQL SE</th>
+										<th>CloudSQL MSSQL EE</th>
+										<th>CloudSQL PG</th>
+										<th>Onprem DB</th>
+										<th>Big Query</th>
+										<th>Cloud Scheduler</th>
+										<th>Memory Store</th>
+										<th>Cloud Monitoring</th>
+										<th>Cloud Logging</th>
+										<th>Secret Manager</th>
+										<th>Fire Store</th>
+										<th>Mongo DB</th>
+										<th>Cloud Build</th>
+										<th>ADFS</th>
+										<th>Azure AD</th>
+										<th>Deployment Topology</th>
+										<th>Terraform IAC Pipeline</th>
+										<th>App CI/CD Pipeline</th>
+										<th>FOSSA</th>
+										<th>Checkmarx</th>
+										<th>SonarQube</th>
+										<th>CyCode</th>
+										<th>42 Crunch</th>
+										<th>Automated Testing</th>
+										<th>SRE</th>
+										<th>Migration Scope</th>
+										<th>Migration Category</th>
+										<th>Launch Date</th>																
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr th:each="app:${apps}">
+										<td th:text="${app.appId}"></td>
+										<td th:text="${app.appName}"></td>
+										<td th:text="${app.pdo}"></td>
+										<td th:text="${app.sla}"></td>
+										<td th:text="${app.currentStateTechStack}"></td>
+										<td th:text="${app.currentStateDb}"></td>
+										<td th:text="${app.futureStateTechStack}"></td>
+										<td th:text="${app.migrationRoadMap}"></td>
+										<td th:text="${app.inScope}"></td>
+										<td th:text="${app.architectureType}"></td>
+										<td th:text="${app.cloudRun}"></td>
+										<td th:text="${app.gcpCaas}"></td>
+										<td th:text="${app.onpremCaas}"></td>
+										<td th:text="${app.externalLoadBalancer}"></td>
+										<td th:text="${app.internalLoadBalancer}"></td>
+										<td th:text="${app.apigee}"></td>
+										<td th:text="${app.cloudArmor}"></td>
+										<td th:text="${app.cloudDns}"></td>
+										<td th:text="${app.computeEngine}"></td>
+										<td th:text="${app.cloudFunction}"></td>
+										<td th:text="${app.cloudStorage}"></td>
+										<td th:text="${app.pubSub}"></td>
+										<td th:text="${app.cloudSQLMSSQLSE}"></td>
+										<td th:text="${app.cloudSQLMSSQLEE}"></td>
+										<td th:text="${app.cloudSQLPG}"></td>
+										<td th:text="${app.onpremDb}"></td>
+										<td th:text="${app.bigQuery}"></td>
+										<td th:text="${app.cloudScheduler}"></td>
+										<td th:text="${app.memoryStore}"></td>
+										<td th:text="${app.cloudMonitoring}"></td>
+										<td th:text="${app.cloudLogging}"></td>
+										<td th:text="${app.secretManager}"></td>
+										<td th:text="${app.fireStore}"></td>
+										<td th:text="${app.mongoDb}"></td>
+										<td th:text="${app.cloudBuild}"></td>
+										<td th:text="${app.adfs}"></td>
+										<td th:text="${app.azureAd}"></td>
+										<td th:text="${app.deploymentTopology}"></td>
+										<td th:text="${app.terraformIacPipeline}"></td>
+										<td th:text="${app.appCiCdPipeline}"></td>
+										<td th:text="${app.fossa}"></td>
+										<td th:text="${app.checkmarx}"></td>
+										<td th:text="${app.sonarQube}"></td>
+										<td th:text="${app.cyCode}"></td>
+										<td th:text="${app.crunch_42}"></td>
+										<td th:text="${app.automatedTesting}"></td>
+										<td th:text="${app.sre}"></td>
+										<td th:text="${app.migrationScope}"></td>
+										<td th:text="${app.migrationCategory}"></td>
+										<td th:text="${app.launchDate}"></td>
+										<td><a th:href="@{/gcp-app-edit/{id}(id=${app.id})}"
+											class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+										<td><a
+											th:href="@{/gcp-app-delete/{id}(id=${app.id})}"
+											class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class = "footer">
+		<span>Designed & Developed by Veera</span>
+	</footer>
+</body>
+</html>
